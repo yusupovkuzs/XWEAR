@@ -1,0 +1,460 @@
+﻿body {
+    font-family: 'RF Dewi Extended';
+}
+
+[class*="__container--big"] {
+    max-width: 1570px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+[class*="__container--small"] {
+    max-width: 1390px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+:root {
+    --black-heading: #121214;
+    --blue-accent: #49D0FF;
+    --light-gray: #8C8F96;
+    --footer-link: #DCDCE0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'RF Dewi Expanded';
+    text-transform: uppercase;
+    font-weight: 900;
+    color: var(--black-heading);
+}
+
+.link {
+    padding: 23px 54px 23px 27px;
+    background: var(--black-heading);
+    color: #fff;
+    display: inline-block;
+    position: relative;
+    font-size: 12px;
+    font-weight: 800;
+    line-height: 1.66;
+    text-transform: uppercase;
+    transition: all 0.2s;
+}
+
+.link:hover {
+    background: var(--blue-accent);
+}
+
+
+.link img {
+    position: absolute;
+    right: 27px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.title {
+    font-size: 51px;
+    line-height: 1.23;
+}
+
+.desc {
+    font-size: 19px;
+    font-weight: 400;
+    line-height: 1.68;
+}
+
+/* ================= HEADER =================== */
+
+.header {
+    background: var(--black-heading);
+    color: #fff;
+}
+
+.header__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 33px 0;
+}
+
+.header__nav-list {
+    display: flex;
+    gap: 48px;
+}
+
+.header__nav-item {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    position: relative;
+}
+
+.header__nav--link {
+    transition: border-bottom 0.2s;
+    padding: 5px 0;
+}
+
+.header__nav--link:hover {
+    padding-bottom: 4px;
+    border-bottom: 1px solid var(--blue-accent);
+}
+
+.header__nav-value {
+    padding: 23px 114px 43px 32px;
+    position: relative;
+}
+
+.header__icons {
+    display: flex;
+    gap: 32px;
+}
+
+.header__icons-link svg path {
+    transition: all .2s;
+}
+
+.header__icons-link:hover svg path {
+    fill: var(--blue-accent);
+}
+
+/* ================= MAIN =================== */
+
+/* ================= WELCOME =================== */
+
+.welcome {
+    margin-top: 49px;
+}
+
+.welcome__slider {
+    position: relative;
+}
+
+.swiper {
+    overflow: hidden;
+}
+
+.swiper-wrapper {
+    display: inline-flex;
+}
+
+.welcome__block {
+    width: 100%;
+    height: 100%;
+}
+
+.welcome__block--clothes {
+    background: url('../img/welcome-slider/1.jpg') center center / cover no-repeat;
+}
+
+.welcome__block--shoes {
+    background: url('../img/welcome-slider/2.jpg') center center / cover no-repeat;
+}
+
+.welcome__block--accessory {
+    background: url('../img/welcome-slider/3.jpg') center center / cover no-repeat;
+}
+
+.welcome__block-text {
+    width: 571px;
+    padding: 98px 0 172px 98px;
+}
+
+.welcome__title {
+    margin-bottom: 19px;
+}
+
+.welcome__desc {
+    margin-bottom: 19px;
+}
+
+.welcome__btn {
+    position: absolute;
+    background: #fff;
+    border-radius: 50%;
+    width: 67px;
+    height: 67px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+    .welcome__btn:hover {
+        background: var(--footer-link);
+    }
+
+
+.welcome__btn-left {
+    bottom: 46px;
+    left: 90px;
+}
+
+.welcome__btn-right {
+    bottom: 46px;
+    left: 172px;
+}
+
+.welcome__arrow-left {
+    transform: rotate(180deg);
+}
+
+/* ================= ONLINE STORE =================== */
+
+.online-store {
+    margin: 49px 0;
+}
+
+.online-store__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.online-store__content {
+    max-width: 812px;
+}
+
+.online-store__title {
+    font-size: 36px;
+    line-height: 1.33;
+    margin-bottom: 17px;
+}
+
+.online-store__desc {
+    line-height: 1.87;
+    margin-bottom: 17px;
+    color: var(--desc--text);
+}
+
+.online-store__info {
+    display: flex;
+    flex-direction: column;
+    padding: 40px 53px 0px 53px;
+    -webkit-box-shadow: 4px 4px 8px 0px rgba(18, 18, 20, 0.2);
+    -moz-box-shadow: 4px 4px 8px 0px rgba(18, 18, 20, 0.2);
+    box-shadow: 4px 4px 8px 0px rgba(18, 18, 20, 0.2);
+}
+
+.online-store__block {
+    display: flex;
+    margin-bottom: 40px;
+}
+
+.online-store__img {
+    margin-right: 29px;
+}
+
+.online-store__block-title {
+    font-size: 13px;
+    line-height: 1.69;
+    margin-bottom: 4px;
+    max-width: 225px;
+}
+
+    .online-store__block-title span {
+        position: relative;
+    }
+
+        .online-store__block-title span::after {
+            content: "";
+            width: 100%;
+            height: 3px;
+            border-radius: 4px;
+            position: absolute;
+            top: 12px;
+            left: 0;
+            background: var(--blue-accent);
+            z-index: -1;
+        }
+
+
+.online-store__block-desc {
+    font-size: 14px;
+    line-height: 1.42;
+    color: var(--desc--text);
+    max-width: 242px;
+}
+
+/* ================= FOOTER =================== */
+
+.footer {
+    background: var(--black-heading);
+    margin-top: 49px;
+}
+
+.footer__container {
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    padding: 45px 0;
+}
+
+.footer__title {
+    color: #fff;
+    font-size: 15px;
+    font-weight: 900;
+    line-height: 1.86;
+    text-transform: uppercase;
+    margin-bottom: 9px;
+}
+
+.footer__contacts-links--text {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+
+.footer__contacts-links--text a:hover {
+    color: #fff;
+}
+
+.footer__contacts-links--message {
+    display: flex;
+    gap: 9px;
+}
+
+.footer__contacts-link {
+    color: var(--footer-link);
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.86;
+    transition: color 0.2s;
+}
+
+/* ================= ONLINE STORE =================== */
+
+.online-store {
+    margin: 49px 0;
+}
+
+.online-store__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.online-store__content {
+    max-width: 812px;
+}
+
+.online-store__title {
+    font-size: 36px;
+    line-height: 1.33;
+    margin-bottom: 17px;
+}
+
+.online-store__desc {
+    line-height: 1.87;
+    margin-bottom: 17px;
+    color: var(--desc--text);
+}
+
+.online-store__info {
+    display: flex;
+    flex-direction: column;
+    padding: 40px 53px 0px 53px;
+    -webkit-box-shadow: 4px 4px 8px 0px rgba(18, 18, 20, 0.2);
+    -moz-box-shadow: 4px 4px 8px 0px rgba(18, 18, 20, 0.2);
+    box-shadow: 4px 4px 8px 0px rgba(18, 18, 20, 0.2);
+}
+
+.online-store__block {
+    display: flex;
+    margin-bottom: 40px;
+}
+
+.online-store__img {
+    margin-right: 29px;
+}
+
+.online-store__block-title {
+    font-size: 13px;
+    line-height: 1.69;
+    margin-bottom: 4px;
+    max-width: 225px;
+}
+
+.online-store__block-title span {
+    position: relative;
+}
+
+.online-store__block-title span::after {
+    content: "";
+    width: 100%;
+    height: 3px;
+    border-radius: 4px;
+    position: absolute;
+    top: 12px;
+    left: 0;
+    background: var(--blue-accent);
+    z-index: -1;
+}
+
+
+.online-store__block-desc {
+    font-size: 14px;
+    line-height: 1.42;
+    color: var(--desc--text);
+    max-width: 242px;
+}
+
+/* ================= LOGIN & REGISTER =================== */
+
+.login, .register {
+    margin: 49px 0;
+}
+
+.login__container, .register__container {
+    display: flex;
+    justify-content: center;
+}
+
+.login__form, .register__form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+}
+
+.login__title, .register__title {
+    font-size: 48px;
+    font-weight: 900;
+}
+
+.email {
+    padding: 10px 10px;
+    border-radius: 20px;
+    font-size: 20px;
+    background: transparent;
+    border: 2px solid #000;
+    color: #000;
+}
+
+.password {
+    padding: 10px 10px;
+    border-radius: 20px;
+    font-size: 20px;
+    background: transparent;
+    border: 2px solid #000;
+    color: #000;
+}
+
+.button {
+    padding: 10px 10px;
+    border-radius: 20px;
+    font-size: 20px;
+    background: #000;
+    border: 2px solid #000;
+    color: #fff;
+    transition: all 0.2s;
+}
+
+    .button:hover {
+        background: transparent;
+        color: #000;
+    }

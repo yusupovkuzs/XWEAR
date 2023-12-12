@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34322.80
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XWEARShopUI", "XWEARShopUI\XWEARShopUI.csproj", "{91D835B4-533B-475A-9EDB-5004DA0A79E6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{91D835B4-533B-475A-9EDB-5004DA0A79E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91D835B4-533B-475A-9EDB-5004DA0A79E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91D835B4-533B-475A-9EDB-5004DA0A79E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91D835B4-533B-475A-9EDB-5004DA0A79E6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B1522B4B-15F4-4C36-8E4D-D309B2176324}
+	EndGlobalSection
+EndGlobal

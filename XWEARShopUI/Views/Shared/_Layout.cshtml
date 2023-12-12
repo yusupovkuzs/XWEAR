@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+
+    <link rel="stylesheet" href="~/css/reset.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/font.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/style.css" asp-append-version="true" />
+</head>
+<body>
+    <header class="header">
+        <div class="header__container header__container--small">
+            <a href="/" class="header__logo-link"><img src="./img/logo.svg" alt="XWEAR" class="header__logo logo"></a>
+
+            <nav class="header__nav">
+                <ul class="header__nav-list">
+                    <li class="header__nav-item">
+                        <a href="/catalog" class="header__nav--link">Каталог</a>
+                    </li>
+                    <li class="header__nav-item">
+                        <a href="/info" class="header__nav--link">Информация</a>
+                    </li>
+                </ul>
+            </nav>
+
+            @if (User.Identity.IsAuthenticated)
+            {
+                <div class="header__icons">
+                    <a href="/cart"><img src="./img/icons/basket.svg" alt="cart" class="header__basket"></a>
+                </div>
+            }
+                <partial name="_LoginPartial" />
+            
+        </div>
+    </header>
+
+
+    <main class="main">
+        @RenderBody()
+    </main>
+
+    <footer class="footer">
+        <div class="footer__container footer__container--small">
+            <a href="/" class="footer__logo-link"><img src="./img/gray-logo.svg" alt="XWEAR" class="footer__logo logo"></a>
+
+            <div class="footer__contacts">
+                <h2 class="footer__title">Контакты</h2>
+                <div class="footer__contacts-links footer__contacts-links--text">
+                    <a href="mailto:info@xwear.info" class="footer__contacts-link" target="_blank">info@xwear.info</a>
+                    <a href="tel:+79936083885" class="footer__contacts-link" target="_blank">+7 993 608 38 85</a>
+                </div>
+            </div>
+            <div class="footer__contacts">
+                <h2 class="footer__title">Мессенджеры</h2>
+                <div class="footer__contacts-links footer__contacts-links--message">
+                    <a href="https://t.me/yusupovkuzs" class="footer__contacts-link" target="_blank">
+                        <img src="./img/contacts/tg.svg" alt="telegram" class="footer__contacts-img">
+                    </a>
+                    <a href="https://web.whatsapp.com/" class="footer__contacts-link" target="_blank">
+                        <img src="./img/contacts/whtsup.svg" alt="whatsapp" class="footer__contacts-img">
+                    </a>
+                </div>
+            </div>
+            <div class="footer__contacts">
+                <h2 class="footer__title">Наши соц.сети</h2>
+                <div class="footer__contacts-links">
+                    <a href="https://vk.com/yusypov_i" class="footer__contacts-link" target="_blank">
+                        <img src="./img/contacts/vk.svg" alt="vk" class="footer__contacts-img">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="~/js/swiper.js" asp-append-version="true"></script>
+    <script src="~/js/main.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
