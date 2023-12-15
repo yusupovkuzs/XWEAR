@@ -123,10 +123,33 @@ h6 {
     fill: var(--blue-accent);
 }
 
+.header__log {
+    display: flex;
+    gap: 10px;
+    text-align: center;
+    align-items: center;
+}
+
+    .header__log span {
+        width: 20px;
+        height: 1px;
+        background: var(--blue-accent);
+        margin: 0 auto;
+        transform: rotate(-45deg);
+    }
+
+.header__log-link {
+    transition: border-bottom 0.2s;
+    padding: 5px 0;
+}
+
+.header__log-link:hover {
+    padding-bottom: 4px;
+    border-bottom: 1px solid var(--blue-accent);
+}
+
 /* ================= MAIN =================== */
-
 /* ================= WELCOME =================== */
-
 .welcome {
     margin-top: 49px;
 }
@@ -406,7 +429,7 @@ h6 {
 /* ================= LOGIN & REGISTER =================== */
 
 .login, .register {
-    margin: 49px 0;
+    margin: 200px 0;
 }
 
 .login__container, .register__container {

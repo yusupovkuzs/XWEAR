@@ -1,15 +1,15 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace WebXWEAR.Models
+namespace XWEARShopUI.Models
 {
-	[Table("Type")]
-	public class Type
+	[Table("Category")]
+	public class Category
 	{
 		public int Id { get; set; }
 		[Required]
 		[MaxLength(40)]
-		public string TypeName { get; set; }
+		public string CategoryName { get; set; }
 
 		public List<Product> Products { get; set; }
 	}

@@ -24,14 +24,7 @@
                     </li>
                 </ul>
             </nav>
-
-            @if (User.Identity.IsAuthenticated)
-            {
-                <div class="header__icons">
-                    <a href="/cart"><img src="./img/icons/basket.svg" alt="cart" class="header__basket"></a>
-                </div>
-            }
-                <partial name="_LoginPartial" />
+            <partial name="_LoginPartial" />
             
         </div>
     </header>

@@ -2,14 +2,31 @@
 @inject SignInManager<IdentityUser> SignInManager
 @inject UserManager<IdentityUser> UserManager
 
-<ul class="navbar-nav">
-@if (!(SignInManager.IsSignedIn(User)))
+<ul class="header__log">
+@if (SignInManager.IsSignedIn(User))
 {
-        <li class="nav-item">
-            <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Register">Register</a>
+        @if (User.IsInRole("Admin"))
+        {
+            <p>В режиме администратора</p>
+        }
+        else
+
+        {
+            <div class="header__icons">
+                <a href="/cart"><img src="./img/icons/basket.svg" alt="cart" class="header__basket"></a>
+                <a href="/cart"><img src="./img/icons/basket.svg" alt="cart" class="header__basket"></a>
+        </div>
+        }
+    }
+    else
+    {
+
+        <li class="header__log-item">
+            <a class="header__log-link" asp-area="Identity" asp-page="/Account/Register">Зарегистрироваться</a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login">Login</a>
+        <span></span>
+        <li class="header__log-item">
+            <a class="header__log-link" asp-area="Identity" asp-page="/Account/Login">Войти в аккаунт</a>
         </li>
-}
+    }
 </ul>
