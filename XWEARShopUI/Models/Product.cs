@@ -20,5 +20,7 @@ namespace XWEARShopUI.Models
 		public Category Category { get; set; }
         public List<OrderDetail> OrderDetail { get; set; }
         public List<CartDetail> CartDetail { get; set; }
+        [NotMapped]
+        public string CategoryName {  get; set; }
     }
 }

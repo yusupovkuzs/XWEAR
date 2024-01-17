@@ -12,8 +12,8 @@ using XWEARShopUI.Data;
 namespace XWEARShopUI.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20231215030855_added-tables")]
-    partial class addedtables
+    [Migration("20231226082316_add-tables")]
+    partial class addtables
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -170,12 +170,10 @@ namespace XWEARShopUI.Data.Migrations
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
                     b.Property<string>("LoginProvider")
-                        .HasMaxLength(128)
-                        .HasColumnType("nvarchar(128)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("ProviderKey")
-                        .HasMaxLength(128)
-                        .HasColumnType("nvarchar(128)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("ProviderDisplayName")
                         .HasColumnType("nvarchar(max)");
@@ -212,12 +210,10 @@ namespace XWEARShopUI.Data.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("LoginProvider")
-                        .HasMaxLength(128)
-                        .HasColumnType("nvarchar(128)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Name")
-                        .HasMaxLength(128)
-                        .HasColumnType("nvarchar(128)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Value")
                         .HasColumnType("nvarchar(max)");
@@ -243,6 +239,9 @@ namespace XWEARShopUI.Data.Migrations
 
                     b.Property<int>("ShoppingCartId")
                         .HasColumnType("int");
+
+                    b.Property<double>("UnitPrice")
+                        .HasColumnType("float");
 
                     b.HasKey("Id");
 
@@ -336,6 +335,9 @@ namespace XWEARShopUI.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<int>("StatusId")
+                        .HasColumnType("int");
+
                     b.Property<string>("StatusName")
                         .IsRequired()
                         .HasMaxLength(20)
@@ -354,14 +356,16 @@ namespace XWEARShopUI.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<string>("BrendName")
+                        .IsRequired()
+                        .HasMaxLength(40)
+                        .HasColumnType("nvarchar(40)");
+
                     b.Property<int>("CategoryId")
                         .HasColumnType("int");
 
                     b.Property<string>("Image")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("OrderId")
-                        .HasColumnType("int");
 
                     b.Property<double>("Price")
                         .HasColumnType("float");
@@ -374,8 +378,6 @@ namespace XWEARShopUI.Data.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("CategoryId");
-
-                    b.HasIndex("OrderId");
 
                     b.ToTable("Product");
                 });
@@ -453,20 +455,20 @@ namespace XWEARShopUI.Data.Migrations
             modelBuilder.Entity("XWEARShopUI.Models.CartDetail", b =>
                 {
                     b.HasOne("XWEARShopUI.Models.Product", "Product")
-                        .WithMany("CartDetails")
+                        .WithMany("CartDetail")
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("XWEARShopUI.Models.ShoppingCart", "ShoppingCartCart")
-                        .WithMany()
+                    b.HasOne("XWEARShopUI.Models.ShoppingCart", "ShoppingCart")
+                        .WithMany("CartDetails")
                         .HasForeignKey("ShoppingCartId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Product");
 
-                    b.Navigation("ShoppingCartCart");
+                    b.Navigation("ShoppingCart");
                 });
 
             modelBuilder.Entity("XWEARShopUI.Models.Order", b =>
@@ -483,13 +485,13 @@ namespace XWEARShopUI.Data.Migrations
             modelBuilder.Entity("XWEARShopUI.Models.OrderDetail", b =>
                 {
                     b.HasOne("XWEARShopUI.Models.Order", "Order")
-                        .WithMany("OrderDetails")
+                        .WithMany("OrderDetail")
                         .HasForeignKey("OrderId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("XWEARShopUI.Models.Product", "Product")
-                        .WithMany()
+                        .WithMany("OrderDetail")
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -501,21 +503,13 @@ namespace XWEARShopUI.Data.Migrations
 
             modelBuilder.Entity("XWEARShopUI.Models.Product", b =>
                 {
-                    b.HasOne("XWEARShopUI.Models.Category", "ProductCategory")
+                    b.HasOne("XWEARShopUI.Models.Category", "Category")
                         .WithMany("Products")
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("XWEARShopUI.Models.Order", "Order")
-                        .WithMany()
-                        .HasForeignKey("OrderId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Order");
-
-                    b.Navigation("ProductCategory");
+                    b.Navigation("Category");
                 });
 
             modelBuilder.Entity("XWEARShopUI.Models.Category", b =>
@@ -525,10 +519,17 @@ namespace XWEARShopUI.Data.Migrations
 
             modelBuilder.Entity("XWEARShopUI.Models.Order", b =>
                 {
-                    b.Navigation("OrderDetails");
+                    b.Navigation("OrderDetail");
                 });
 
             modelBuilder.Entity("XWEARShopUI.Models.Product", b =>
+                {
+                    b.Navigation("CartDetail");
+
+                    b.Navigation("OrderDetail");
+                });
+
+            modelBuilder.Entity("XWEARShopUI.Models.ShoppingCart", b =>
                 {
                     b.Navigation("CartDetails");
                 });

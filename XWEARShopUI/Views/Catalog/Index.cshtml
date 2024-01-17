@@ -1,61 +1,31 @@
-﻿@{
+﻿@model IEnumerable<Product>
+@{
 	ViewData["Title"] = "Каталог";
 }
 
-<section class="welcome">
-	<div class="welcome__container welcome__container--big">
-		<div class="welcome__slider swiper">
-			<div class="welcome__slider-wrapper swiper-wrapper">
-				<div class="swiper-slide">
-					<div class="welcome__block welcome__block--clothes">
-						<div class="welcome__block-text">
-							<h2 class="welcome__title">Широкий ассортимент Одежды</h2>
-							<p class="welcome__desc">Одежда от известные брендов у нас в каталоге. Только качественные вещи.</p>
-							<a href="#" class="welcome__link">
-								Перейти в каталог <img src="~/img/icons/arrow-welcome-right.svg"
-							   alt="">
-							</a>
-						</div>
-					</div>
-				</div>
-				<div class="swiper-slide">
-					<div class="welcome__block welcome__block--shoes">
-						<div class="welcome__block-text">
-							<h2 class="welcome__title">Новинки уже ждут вас</h2>
-							<p class="welcome__desc">Обувь от известные брендов у нас в каталоге. Только качественные товары.</p>
-							<a href="#" class="welcome__link">
-								Перейти в каталог <img src="~/img/icons/arrow-welcome-right.svg"
-							   alt="">
-							</a>
-						</div>
-					</div>
-				</div>
-				<div class="swiper-slide">
-					<div class="welcome__block welcome__block--accessory">
-						<div class="welcome__block-text">
-							<h2 class="welcome__title">Широкий ассортимент Одежды</h2>
-							<p class="welcome__desc">Одежда от известные брендов у нас в каталоге. Только качественные вещи.</p>
-							<a href="#" class="welcome__link">
-								Перейти в каталог <img src="~/img/icons/arrow-welcome-right.svg"
-							   alt="">
-							</a>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="swiper-pagination"></div>
-			<div class="swiper-btns welcome__buttons">
-				<div class="swiper-button-prev">
-					<button class="welcome__btn welcome__btn-left">
-						<img class="welcome__arrow-left" src="~/img/icons/arrow-welcome-slider.svg" alt="">
-					</button>
-				</div>
-				<div class="swiper-button-next">
-					<button class="welcome__btn welcome__btn-right">
-						<img class="welcome__arrow-right" src="~/img/icons/arrow-welcome-slider.svg" alt="">
-					</button>
-				</div>
-			</div>
-		</div>
-	</div>
+<section class="catalog">
+    <div class="catalog__container catalog__container--small">
+        <aside class="catalog__filter">
+            тут должен быть фильтр
+        </aside>
+        <div class="catalog__content">
+            @foreach(var product in Model)
+            {
+                <div class="catalog__card">
+                    @if (string.IsNullOrEmpty(product.Image))
+                    {
+                        <img src="/img/catalog/no-image.jpg" alt="" class="catalog__img" />
+                    }
+                    else
+                    {
+                        <img src="/img/catalog/@product.Image" alt="" class="catalog__img" />
+                    }
+                    <h2 class="catalog__card-name">@product.ProductName</h2>
+                    <p class="catalog__card-price">от @product.Price₽</p>
+                    <a href="" class="link catalog__link">В корзину</a>
+                </div>
+       
+            }
+        </div>
+    </div>
 </section>

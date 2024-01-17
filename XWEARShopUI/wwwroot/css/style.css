@@ -428,16 +428,19 @@ h6 {
 
 /* ================= LOGIN & REGISTER =================== */
 
-.login, .register {
+.login, .register{
     margin: 200px 0;
 }
+.logout {
+    margin: 300px 0;
+}
 
-.login__container, .register__container {
+.login__container, .register__container, .logout__container {
     display: flex;
     justify-content: center;
 }
 
-.login__form, .register__form {
+.login__form, .register__form, .logout__form {
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -475,9 +478,51 @@ h6 {
     border: 2px solid #000;
     color: #fff;
     transition: all 0.2s;
+    display: inline-block;
 }
 
     .button:hover {
         background: transparent;
         color: #000;
     }
+
+/* ================= CATALOG ================= */
+
+.catalog__container {
+    padding: 49px 0;
+    display: flex;
+    align-items: start;
+    gap: 28px;
+}
+
+.catalog__filter {
+    width: 318px;
+    background: #000;
+    height: 100px;
+    flex: none;
+    color: #fff;
+}
+
+.catalog__content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.catalog__card {
+    max-width: 318px;
+}
+
+.catalog__card-name {
+    font-size: 19px;
+    font-weight: 700;
+    line-height: 1.47;
+    color: #000;
+}
+
+.catalog__card-price {
+    color: var(--price-color);
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 20px;
+}
